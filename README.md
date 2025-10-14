@@ -1,13 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VozActiva - Micro-SaaS de Testimonios
 
-## Getting Started
+VozActiva es un Micro-SaaS para recolectar y gestionar testimonios de clientes de forma sencilla.
 
-First, run the development server:
+## 🚀 Características
+
+- **Recolección Fácil**: Comparte un enlace simple con tus clientes para que dejen testimonios
+- **Mejora con IA**: Utiliza Google Gemini para mejorar y pulir los testimonios automáticamente
+- **Widget Embebible**: Muestra testimonios directamente en tu sitio web
+- **Gestión Completa**: Aprueba, rechaza y organiza testimonios desde el dashboard
+
+## 🛠️ Stack Tecnológico
+
+- **Framework**: Next.js 15 con App Router y TypeScript
+- **Estilos**: Tailwind CSS
+- **Base de Datos**: Supabase (PostgreSQL)
+- **Autenticación**: Clerk
+- **IA**: Google Gemini
+- **Hosting**: Vercel
+
+## 📋 Prerrequisitos
+
+Antes de comenzar, necesitas configurar:
+
+1. **Supabase**: Crear proyecto y obtener URL + Anon Key
+2. **Clerk**: Configurar aplicación de autenticación
+3. **Google Gemini**: Obtener API Key
+4. **Vercel**: Para deployment (opcional)
+
+## ⚙️ Configuración
+
+### 1. Clonar e instalar dependencias
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/diegogalmarini/VozActiva.git
+cd VozActiva
+npm install
 # or
 pnpm dev
 # or
