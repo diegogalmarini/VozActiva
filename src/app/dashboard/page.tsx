@@ -1,7 +1,9 @@
 import { auth } from "@clerk/nextjs/server";
 import { supabase } from "@/lib/supabaseClient";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 
 async function createProject(formData: FormData) {
   "use server";
@@ -14,10 +16,12 @@ async function createProject(formData: FormData) {
   
   const { error } = await supabase
     .from("projects")
-    .insert([{ name: name.trim(), user_id: userId }]);
+    .insert([{ user_id: userId, name: name.trim() }]);
     
   if (error) {
     console.error("Error creating project:", error);
+  } else {
+    revalidatePath("/dashboard");
   }
 }
 
@@ -42,11 +46,14 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Mis Proyectos</h1>
-          <p className="mt-2 text-gray-600">
-            Gestiona tus proyectos de recolección de testimonios
-          </p>
+        <div className="mb-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Mis Proyectos</h1>
+            <p className="mt-2 text-gray-600">
+              Gestiona tus proyectos de recolección de testimonios
+            </p>
+          </div>
+          <UserButton />
         </div>
 
         {/* Formulario para crear nuevo proyecto */}
@@ -71,7 +78,7 @@ export default async function DashboardPage() {
 
         {/* Lista de proyectos */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects?.map((project) => (
+          {projects?.map((project: any) => (
             <div key={project.id} className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
               <p className="text-gray-600 mb-4">

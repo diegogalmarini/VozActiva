@@ -8,21 +8,18 @@ export interface Database {
           name: string;
           user_id: string;
           created_at: string;
-          updated_at: string;
         };
         Insert: {
           id?: string;
           name: string;
           user_id: string;
           created_at?: string;
-          updated_at?: string;
         };
         Update: {
           id?: string;
           name?: string;
           user_id?: string;
           created_at?: string;
-          updated_at?: string;
         };
       };
       testimonials: {
@@ -34,7 +31,6 @@ export interface Database {
           content: string;
           status: 'pending' | 'approved' | 'rejected';
           created_at: string;
-          updated_at: string;
         };
         Insert: {
           id?: string;
@@ -44,7 +40,6 @@ export interface Database {
           content: string;
           status?: 'pending' | 'approved' | 'rejected';
           created_at?: string;
-          updated_at?: string;
         };
         Update: {
           id?: string;
@@ -54,7 +49,6 @@ export interface Database {
           content?: string;
           status?: 'pending' | 'approved' | 'rejected';
           created_at?: string;
-          updated_at?: string;
         };
       };
     };
