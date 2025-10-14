@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `Eres un experto en comunicación y copywriting. Tu tarea es tomar el siguiente testimonio de un cliente y mejorarlo. No inventes información, solo pule el texto existente para que sea más claro, conciso y potente. Corrige cualquier error gramatical u ortográfico. Mantén el tono original del autor. Devuelve únicamente el texto mejorado, sin añadir introducciones ni despedidas.
 
