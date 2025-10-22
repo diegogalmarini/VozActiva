@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
-        { error: "GEMINI_API_KEY is not configured" },
+        { error: "GEMINI_API_KEY no está configurada. Por favor configúrala en las variables de entorno." },
         { status: 500 }
       );
     }
@@ -35,10 +35,20 @@ ${text}
     const improvedText = response.text();
 
     return NextResponse.json({ improvedText });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Error improving text:", error);
+    
+    // Manejo específico de error de quota
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (errorMessage.includes('RATE_LIMIT_EXCEEDED') || errorMessage.includes('429')) {
+      return NextResponse.json(
+        { error: "Límite de API alcanzado temporalmente. Por favor intenta en unos minutos o verifica tu plan de Google AI." },
+        { status: 429 }
+      );
+    }
+    
     return NextResponse.json(
-      { error: "Failed to improve text" },
+      { error: "No se pudo mejorar el texto. Intenta nuevamente más tarde." },
       { status: 500 }
     );
   }

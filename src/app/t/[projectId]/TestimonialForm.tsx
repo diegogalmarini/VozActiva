@@ -17,11 +17,13 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isImproving, setIsImproving] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [aiError, setAiError] = useState<string | null>(null);
 
   const handleImproveText = async () => {
     if (!formData.content.trim()) return;
     
     setIsImproving(true);
+    setAiError(null);
     try {
       const response = await fetch("/api/improve-text", {
         method: "POST",
@@ -30,11 +32,16 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
       });
       
       const data = await response.json();
-      if (data.improvedText) {
+      
+      if (!response.ok) {
+        setAiError(data.error || "No se pudo mejorar el texto");
+      } else if (data.improvedText) {
         setFormData(prev => ({ ...prev, content: data.improvedText }));
+        setAiError(null);
       }
     } catch (error) {
       console.error("Error improving text:", error);
+      setAiError("Error de conexión. Intenta nuevamente.");
     }
     setIsImproving(false);
   };
@@ -189,6 +196,12 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                 </>
               )}
             </button>
+            
+            {aiError && (
+              <p className="mt-2 text-sm text-red-600">
+                {aiError}
+              </p>
+            )}
           </div>
 
           <button
