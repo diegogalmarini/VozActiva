@@ -20,10 +20,12 @@ export default async function TestimonialPage({ params }: PageProps) {
     notFound();
   }
 
+  const projectData = project as { name: string };
+
   return (
     <TestimonialForm 
       projectId={projectId} 
-      projectName={project.name} 
+      projectName={projectData.name} 
     />
   );
 }

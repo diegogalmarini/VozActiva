@@ -1,9 +1,10 @@
 import { supabase } from "@/lib/supabaseClient";
+import type { Database } from "@/lib/database.types";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { projectId, author_name, author_email, content } = await request.json();
+  const { projectId, author_name, author_email, content, rating } = await request.json();
     
     if (!projectId || !content) {
       return NextResponse.json(
@@ -27,19 +28,37 @@ export async function POST(request: Request) {
     }
 
     // Insertar el testimonio
-    const { data, error } = await supabase
+    // intento con rating si viene presente
+    const payload: Database["public"]["Tables"]["testimonials"]["Insert"] = {
+      project_id: projectId,
+      author_name: author_name || null,
+      author_email: author_email || null,
+      content: content.trim(),
+      status: "pending",
+    };
+    if (typeof rating === 'number') (payload as Record<string, unknown>).rating = rating;
+
+    let { data, error } = await (supabase as unknown as { from: (table: string) => {
+      insert: (rows: unknown[]) => { select: () => { single: () => Promise<{ data: unknown; error: unknown }> } }
+    } })
       .from("testimonials")
-      .insert([
-        {
-          project_id: projectId,
-          author_name: author_name || null,
-          author_email: author_email || null,
-          content: content.trim(),
-          status: "pending",
-        },
-      ])
+      .insert([payload])
       .select()
       .single();
+
+    // si falla por columna rating inexistente, reintenta sin rating
+    if (error && String((error as { message?: string }).message || '').toLowerCase().includes('column') && String((error as { message?: string }).message || '').toLowerCase().includes('rating')) {
+      delete (payload as Record<string, unknown>).rating;
+      const retry = await (supabase as unknown as { from: (table: string) => {
+        insert: (rows: unknown[]) => { select: () => { single: () => Promise<{ data: unknown; error: unknown }> } }
+      } })
+        .from("testimonials")
+        .insert([payload])
+        .select()
+        .single();
+      data = retry.data;
+      error = retry.error;
+    }
 
     if (error) {
       console.error("Error inserting testimonial:", error);

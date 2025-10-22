@@ -30,6 +30,7 @@ export interface Database {
           author_email: string | null;
           content: string;
           status: 'pending' | 'approved' | 'rejected';
+          rating?: number | null;
           created_at: string;
         };
         Insert: {
@@ -39,6 +40,7 @@ export interface Database {
           author_email?: string | null;
           content: string;
           status?: 'pending' | 'approved' | 'rejected';
+          rating?: number | null;
           created_at?: string;
         };
         Update: {
@@ -48,6 +50,7 @@ export interface Database {
           author_email?: string | null;
           content?: string;
           status?: 'pending' | 'approved' | 'rejected';
+          rating?: number | null;
           created_at?: string;
         };
       };

@@ -14,7 +14,11 @@ async function createProject(formData: FormData) {
   const name = formData.get("name") as string;
   if (!name?.trim()) return;
   
-  const { error } = await supabase
+  const { error } = await (supabase as unknown as { 
+    from: (table: string) => { 
+      insert: (rows: { user_id: string; name: string }[]) => Promise<{ error: unknown }> 
+    } 
+  })
     .from("projects")
     .insert([{ user_id: userId, name: name.trim() }]);
     
@@ -78,7 +82,7 @@ export default async function DashboardPage() {
 
         {/* Lista de proyectos */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects?.map((project: any) => (
+          {projects?.map((project: { id: string; name: string; created_at: string }) => (
             <div key={project.id} className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
               <p className="text-gray-600 mb-4">

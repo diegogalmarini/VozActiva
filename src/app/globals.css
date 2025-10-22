@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #e2e2e2;
   --foreground: #171717;
+  --brand-green: #10b981; /* primary */
+  --brand-green-600: #059669;
+  --brand-green-50: #ecfdf5;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --card-radius: 12px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* theme tokens are provided via CSS variables above */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -23,4 +24,141 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, .va-h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+h2, .va-h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111827;
+}
+h3, .va-h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.to-indigo-100 {
+  --tw-gradient-to: lab(81 0 -0.01);
+  --tw-gradient-stops: var(--tw-gradient-via-stops);
+}
+
+.bg-gray-50 {
+  background-color: lab(89 0 -0.01);
+}
+
+/* --- VozActiva UI primitives --- */
+.va-container { max-width: 80rem; margin: 0 auto; padding: 0 1rem; }
+
+.va-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.va-label { display:block; font-size: 0.875rem; color: #374151; font-weight: 500; margin-bottom: 0.25rem; }
+
+.va-input, .va-select, .va-textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.625rem 0.75rem;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.va-textarea { min-height: 120px; resize: vertical; }
+.va-input:focus, .va-select:focus, .va-textarea:focus {
+  border-color: var(--brand-green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-green) 15%, transparent);
+}
+
+.va-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .75rem 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, border-color .15s ease;
+  box-shadow: 0 1px 0 rgba(16,24,40,.05);
+}
+.va-btn:disabled { opacity: .6; cursor: not-allowed; }
+.va-btn-primary { background: var(--brand-green); color: #fff; }
+.va-btn-primary:hover { background: var(--brand-green-600); }
+.va-btn-outline { background: #fff; border-color: var(--border); color: #111827; }
+.va-btn-outline:hover { background: #f9fafb; }
+.va-btn-dark { background: #111827; color: #fff; }
+.va-btn-dark:hover { background: #0b1220; }
+
+.va-tabs { display:flex; flex-wrap: wrap; gap: .5rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+.va-tab {
+  padding: .5rem 1rem;
+  border-radius: 8px 8px 0 0;
+  color: var(--muted);
+}
+.va-tab[aria-selected="true"] {
+  color: #111827;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-bottom-color: #fff;
+}
+
+/* --- Glassmorphism / iOS Glass Modal --- */
+.glass-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
+  animation: scaleIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Oculta el scroll feo de Clerk y del modal */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
