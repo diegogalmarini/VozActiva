@@ -3,6 +3,8 @@ export const metadata = {
   description: "Política de privacidad de VozActiva, el micro‑SaaS para recolectar testimonios.",
 };
 
+import CloseModalButton from "@/components/CloseModalButton";
+
 export default function PrivacyPage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -16,7 +18,8 @@ export default function PrivacyPage() {
       </div>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/30 shadow-xl">
+        <div className="relative bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/30 shadow-xl">
+          <CloseModalButton href="/" />
           <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
             Política de privacidad
           </h1>
