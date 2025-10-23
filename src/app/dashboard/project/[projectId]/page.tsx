@@ -74,8 +74,8 @@ export default async function ProjectDashboard({ params }: PageProps) {
     console.error("Error fetching testimonials:", testimonialsError);
   }
 
-  const publicUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/t/${projectId}`;
-  const embedSrc = `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/embed/${projectId}`;
+  const publicUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://voz-activa.vercel.app'}/t/${projectId}`;
+  const embedSrc = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://voz-activa.vercel.app'}/embed/${projectId}`;
 
   return (
     <div className="min-h-screen relative overflow-hidden py-[30px]">

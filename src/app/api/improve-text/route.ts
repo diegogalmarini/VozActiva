@@ -47,7 +47,7 @@ ${text}
           'Authorization': `Bearer ${orKey}`,
           'Content-Type': 'application/json',
           // Recomendado por OpenRouter para trazabilidad
-          'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+          'HTTP-Referer': process.env.NEXT_PUBLIC_SITE_URL || 'https://voz-activa.vercel.app',
           'X-Title': 'VozActiva',
         },
         body: JSON.stringify({
