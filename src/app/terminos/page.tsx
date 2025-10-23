@@ -4,18 +4,13 @@ export const metadata = {
 };
 
 import CloseModalButton from "@/components/CloseModalButton";
+import TechBackground from "@/components/TechBackground";
 
 export default function TermsPage() {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Fondo animado suave */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-blue-100 to-pink-100"></div>
-        <div className="absolute top-1/5 left-1/6 w-[700px] h-[700px] bg-purple-300/60 rounded-full filter blur-3xl animate-blob-wide" />
-        <div className="absolute top-1/3 right-1/5 w-[660px] h-[660px] bg-yellow-300/60 rounded-full filter blur-3xl animate-blob-wide animation-delay-2000" />
-        <div className="absolute bottom-1/5 left-1/3 w-[740px] h-[740px] bg-pink-300/60 rounded-full filter blur-3xl animate-blob-wide animation-delay-4000" />
-        <div className="absolute inset-0 bg-white/10"></div>
-      </div>
+      {/* Fondo tecnológico animado */}
+      <TechBackground />
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="relative bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/30 shadow-xl">

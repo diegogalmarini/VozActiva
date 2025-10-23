@@ -5,6 +5,7 @@ import { useAuth } from "@clerk/nextjs";
 import { useState } from 'react';
 import AuthModal from '@/components/AuthModal';
 import TypewriterText from '@/components/TypewriterText';
+import TechBackground from '@/components/TechBackground';
 
 export default function Home() {
   const { userId } = useAuth();
@@ -12,21 +13,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Fondo animado con gradientes */}
-      <div className="fixed inset-0 -z-10">
-        {/* Gradiente base más colorido */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-blue-100 to-pink-100"></div>
-
-        {/* Orbes animados más grandes y con más opacidad para mayor cobertura */}
-        <div className="absolute top-1/5 left-1/6 w-[720px] h-[720px] bg-purple-300/60 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
-        <div className="absolute top-1/3 right-1/5 w-[680px] h-[680px] bg-yellow-300/60 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
-        <div className="absolute bottom-1/5 left-1/3 w-[760px] h-[760px] bg-pink-300/60 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
-        <div className="absolute bottom-1/3 right-1/3 w-[700px] h-[700px] bg-blue-300/55 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-6000"></div>
-        <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-indigo-300/55 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-3000"></div>
-
-        {/* Capa de vidrio más ligera para no blanquear demasiado */}
-        <div className="absolute inset-0 bg-white/10"></div>
-      </div>
+      {/* Fondo tecnológico animado */}
+      <TechBackground />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
