@@ -82,9 +82,9 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
       <div className="min-h-screen flex items-center justify-center p-4 relative">
         {/* Animated Background */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide"></div>
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-2000"></div>
-          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-4000"></div>
+         <div className="absolute top-1/5 left-1/6 w-[600px] h-[600px] bg-purple-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
+         <div className="absolute top-1/3 right-1/5 w-[560px] h-[560px] bg-yellow-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
+         <div className="absolute bottom-1/5 left-1/3 w-[620px] h-[620px] bg-pink-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
         </div>
 
         <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-md w-full text-center relative z-10">
@@ -106,9 +106,9 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
     <div className="min-h-screen flex items-center justify-center p-4 relative">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-2000"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-4000"></div>
+        <div className="absolute top-1/5 left-1/6 w-[600px] h-[600px] bg-purple-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
+        <div className="absolute top-1/3 right-1/5 w-[560px] h-[560px] bg-yellow-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
+        <div className="absolute bottom-1/5 left-1/3 w-[620px] h-[620px] bg-pink-300/70 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
       </div>
 
       <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-2xl w-full relative z-10">

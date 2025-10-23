@@ -10,11 +10,11 @@ export default function PrivacyPage() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Fondo animado suave */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-300/40 rounded-full filter blur-3xl animate-blob-wide" />
-        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-300/40 rounded-full filter blur-3xl animate-blob-wide animation-delay-2000" />
-        <div className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] bg-pink-300/40 rounded-full filter blur-3xl animate-blob-wide animation-delay-4000" />
-        <div className="absolute inset-0 bg-white/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-100 via-blue-100 to-pink-100"></div>
+        <div className="absolute top-1/5 left-1/6 w-[700px] h-[700px] bg-purple-300/60 rounded-full filter blur-3xl animate-blob-wide" />
+        <div className="absolute top-1/3 right-1/5 w-[660px] h-[660px] bg-yellow-300/60 rounded-full filter blur-3xl animate-blob-wide animation-delay-2000" />
+        <div className="absolute bottom-1/5 left-1/3 w-[740px] h-[740px] bg-pink-300/60 rounded-full filter blur-3xl animate-blob-wide animation-delay-4000" />
+        <div className="absolute inset-0 bg-white/10"></div>
       </div>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
