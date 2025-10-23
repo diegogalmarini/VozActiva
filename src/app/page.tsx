@@ -18,7 +18,7 @@ export default function Home() {
 
   <div className="flex-1 flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scale-[0.9]">
         <div className="text-center">
-          <h1 className="text-8xl font-bold mb-1 text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] [text-shadow:_0_0_60px_rgb(255_255_255_/_50%),_0_0_30px_rgb(59_130_246_/_40%),_0_2px_4px_rgb(0_0_0_/_30%)]">
+          <h1 className="text-8xl font-bold mb-1 !text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] [text-shadow:_0_0_60px_rgb(255_255_255_/_50%),_0_0_30px_rgb(59_130_246_/_40%),_0_2px_4px_rgb(0_0_0_/_30%)]">
             VozActiva
           </h1>
           <TypewriterText />
@@ -56,7 +56,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-1 text-white">Recolecta Fácilmente</h3>
-                <p className="text-gray-300 text-xs leading-relaxed">Comparte un enlace simple con tus clientes para que dejen sus testimonios</p>
+                <p className="text-gray-300 text-sm leading-relaxed">Comparte un enlace simple con tus clientes para que dejen sus testimonios</p>
               </div>
             </div>
             <div className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-2xl border border-white/30 p-4 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] hover:shadow-[0_8px_48px_0_rgba(236,72,153,0.4)] transition-all duration-500 hover:scale-[1.03] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 after:absolute after:inset-0 after:rounded-3xl after:bg-gradient-to-br after:from-pink-500/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500">
@@ -68,7 +68,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-1 text-white">Mejora con IA</h3>
-                <p className="text-gray-300 text-xs leading-relaxed">Utiliza inteligencia artificial para mejorar y pulir los testimonios</p>
+                <p className="text-gray-300 text-sm leading-relaxed">Utiliza inteligencia artificial para mejorar y pulir los testimonios</p>
               </div>
             </div>
             <div className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-2xl border border-white/30 p-4 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] hover:shadow-[0_8px_48px_0_rgba(20,184,166,0.4)] transition-all duration-500 hover:scale-[1.03] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 after:absolute after:inset-0 after:rounded-3xl after:bg-gradient-to-br after:from-teal-500/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500">
@@ -80,7 +80,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-semibold mb-1 text-white">Embebe en tu Web</h3>
-                <p className="text-gray-300 text-xs leading-relaxed">Muestra los testimonios directamente en tu sitio web con nuestro widget</p>
+                <p className="text-gray-300 text-sm leading-relaxed">Muestra los testimonios directamente en tu sitio web con nuestro widget</p>
               </div>
             </div>
           </div>

@@ -3,14 +3,12 @@ import Link from "next/link";
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="w-full py-2 text-[10px] text-gray-300 relative z-10">
+    <footer className="w-full py-2 text-xs text-gray-300 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-1">
           <p className="text-center">
             © VozActiva {year} by <span className="font-medium">Diego Galmarini</span> |{" "}
             <Link href="/privacidad" className="underline hover:text-white">Política de privacidad</Link>
-            <span className="mx-2 text-gray-500">·</span>
-            <Link href="/terminos" className="underline hover:text-white">Términos de servicio</Link>
           </p>
 
           <div className="flex items-center gap-2">
