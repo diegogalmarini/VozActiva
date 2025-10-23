@@ -36,12 +36,12 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
   return (
     <div>
       {/* Filtro por estrellas */}
-      <div className="flex items-center gap-2 mb-4">
-        <span className="text-sm text-gray-600">Filtrar por estrellas:</span>
+      <div className="flex items-center gap-3 mb-6">
+        <span className="text-sm font-medium text-gray-700">Filtrar por estrellas:</span>
         <select
           value={stars}
           onChange={(e) => setStars(e.target.value === "all" ? "all" : Number(e.target.value))}
-          className="px-2 py-1 border rounded-md text-sm"
+          className="px-4 py-2 bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all"
         >
           <option value="all">Todas</option>
           <option value={5}>5 ★</option>

@@ -34,16 +34,20 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
       const data = await response.json();
       
       if (!response.ok) {
+        // Mostrar el error devuelto por la API
         setAiError(data.error || "No se pudo mejorar el texto");
       } else if (data.improvedText) {
         setFormData(prev => ({ ...prev, content: data.improvedText }));
         setAiError(null);
+      } else {
+        setAiError("No se recibió texto mejorado");
       }
     } catch (error) {
       console.error("Error improving text:", error);
-      setAiError("Error de conexión. Intenta nuevamente.");
+      setAiError("Error de conexión. Verifica tu internet e intenta nuevamente.");
+    } finally {
+      setIsImproving(false);
     }
-    setIsImproving(false);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -75,15 +79,22 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
 
   if (submitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <div className="bg-white p-8 rounded-2xl shadow-xl max-w-md w-full text-center">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="min-h-screen flex items-center justify-center p-4 relative">
+        {/* Animated Background */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide"></div>
+          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-2000"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-4000"></div>
+        </div>
+
+        <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-md w-full text-center relative z-10">
+          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">¡Gracias!</h2>
-          <p className="text-gray-600">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">¡Gracias!</h2>
+          <p className="text-gray-700">
             Tu testimonio ha sido enviado correctamente. Lo revisaremos pronto.
           </p>
         </div>
@@ -92,13 +103,20 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="bg-white p-8 rounded-2xl shadow-xl max-w-2xl w-full">
+    <div className="min-h-screen flex items-center justify-center p-4 relative">
+      {/* Animated Background */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob-wide animation-delay-4000"></div>
+      </div>
+
+      <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-2xl w-full relative z-10">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
             Deja tu testimonio para {projectName}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             Tu opinión es muy valiosa para nosotros. Comparte tu experiencia.
           </p>
         </div>
@@ -106,7 +124,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
                 Nombre (opcional)
               </label>
               <input
@@ -114,13 +132,13 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                 id="name"
                 value={formData.author_name}
                 onChange={(e) => setFormData(prev => ({ ...prev, author_name: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent transition-all"
                 placeholder="Tu nombre"
               />
             </div>
             
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-2">
                 Email (opcional)
               </label>
               <input
@@ -128,17 +146,17 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                 id="email"
                 value={formData.author_email}
                 onChange={(e) => setFormData(prev => ({ ...prev, author_email: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2.5 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent transition-all"
                 placeholder="tu@email.com"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-800 mb-2">
               Puntuación
             </label>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               {Array.from({ length: 5 }).map((_, i) => {
                 const val = i + 1;
                 const active = formData.rating >= val;
@@ -148,11 +166,11 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                     type="button"
                     aria-label={`${val} estrellas`}
                     onClick={() => setFormData(prev => ({ ...prev, rating: val }))}
-                    className="p-1"
+                    className="p-1 transition-transform hover:scale-110"
                     title={`${val} estrellas`}
                   >
                     <svg
-                      className={`w-6 h-6 ${active ? 'text-yellow-500' : 'text-gray-300'}`}
+                      className={`w-8 h-8 transition-colors ${active ? 'text-yellow-400' : 'text-gray-300'}`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -165,7 +183,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
           </div>
 
           <div>
-            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-800 mb-2">
               Tu Testimonio *
             </label>
             <textarea
@@ -173,7 +191,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
               value={formData.content}
               onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
               rows={6}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+              className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent resize-none transition-all"
               placeholder="Comparte tu experiencia..."
               required
             />
@@ -182,7 +200,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
               type="button"
               onClick={handleImproveText}
               disabled={!formData.content.trim() || isImproving}
-              className="mt-3 inline-flex items-center px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="mt-3 inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-medium rounded-xl hover:shadow-lg hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all"
             >
               {isImproving ? (
                 <>
@@ -198,7 +216,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
             </button>
             
             {aiError && (
-              <p className="mt-2 text-sm text-red-600">
+              <p className="mt-2 text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">
                 {aiError}
               </p>
             )}
@@ -207,7 +225,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
           <button
             type="submit"
             disabled={!formData.content.trim() || isSubmitting}
-            className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-3.5 px-6 rounded-xl font-medium hover:shadow-lg hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all"
           >
             {isSubmitting ? (
               <div className="flex items-center justify-center">

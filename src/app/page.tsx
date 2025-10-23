@@ -60,33 +60,33 @@ export default function Home() {
           </div>
 
           {/* Features */}
-          <div className="grid md:grid-cols-3 gap-10 mb-16">
-            <div className="va-card p-10">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="va-card p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <h3 className="va-h3 mb-3">Recolecta Fácilmente</h3>
-              <p className="text-gray-600">Comparte un enlace simple con tus clientes para que dejen sus testimonios</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Recolecta Fácilmente</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Comparte un enlace simple con tus clientes para que dejen sus testimonios</p>
             </div>
-            <div className="va-card p-10">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="va-card p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="va-h3 mb-3">Mejora con IA</h3>
-              <p className="text-gray-600">Utiliza inteligencia artificial para mejorar y pulir los testimonios</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Mejora con IA</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Utiliza inteligencia artificial para mejorar y pulir los testimonios</p>
             </div>
-            <div className="va-card p-10">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="va-card p-8 hover:scale-105 transition-transform duration-300">
+              <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="va-h3 mb-3">Embebe en tu Web</h3>
-              <p className="text-gray-600">Muestra los testimonios directamente en tu sitio web con nuestro widget</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Embebe en tu Web</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Muestra los testimonios directamente en tu sitio web con nuestro widget</p>
             </div>
           </div>
         </div>
