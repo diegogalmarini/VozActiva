@@ -77,12 +77,25 @@ export default async function ProjectDashboard({ params }: PageProps) {
   const embedSrc = `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/embed/${projectId}`;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 flex justify-between items-center">
+    <div className="min-h-screen relative overflow-hidden py-[30px]">
+      {/* Fondo animado con gradientes */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] bg-pink-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-[480px] h-[480px] bg-blue-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-6000"></div>
+        <div className="absolute top-1/2 left-1/2 w-[420px] h-[420px] bg-indigo-300/35 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-3000"></div>
+        <div className="absolute inset-0 bg-white/20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="mb-[30px] flex justify-between items-center">
           <div>
-            <Link href="/dashboard" className="text-blue-600 hover:underline text-sm mb-2 inline-block">← Volver al Dashboard</Link>
-            <h1 className="text-3xl font-bold text-gray-900 mt-2">{projectData.name}</h1>
+            <Link href="/dashboard" className="text-blue-600 hover:text-blue-700 text-sm mb-2 inline-flex items-center gap-1 font-medium hover:gap-2 transition-all">
+              ← Volver al Dashboard
+            </Link>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mt-2">{projectData.name}</h1>
             <p className="mt-2 text-gray-600">
               Gestiona los testimonios de tu proyecto
             </p>
@@ -90,11 +103,11 @@ export default async function ProjectDashboard({ params }: PageProps) {
           <UserButton />
         </div>
         {/* Pestañas */}
-        <div className="mb-8">
-          <div className="bg-white border border-gray-200 rounded-md p-4 mb-4 flex items-center justify-between">
+        <div className="mb-[30px]">
+          <div className="bg-white/70 backdrop-blur-xl border border-white/50 rounded-2xl p-4 mb-4 flex items-center justify-between shadow-lg">
             <div>
-              <h3 className="text-sm text-gray-600">Enlace público</h3>
-              <code className="text-sm break-all">{publicUrl}</code>
+              <h3 className="text-sm font-medium text-gray-700">Enlace público</h3>
+              <code className="text-sm break-all text-gray-800">{publicUrl}</code>
             </div>
             <CopyButton text={publicUrl} label="Copiar Enlace" className="bg-blue-600 hover:bg-blue-700" />
           </div>

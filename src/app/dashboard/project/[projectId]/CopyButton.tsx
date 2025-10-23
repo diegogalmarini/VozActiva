@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 interface CopyButtonProps {
   text: string;
   label: string;
@@ -7,10 +9,13 @@ interface CopyButtonProps {
 }
 
 export function CopyButton({ text, label, className = "" }: CopyButtonProps) {
+  const [copied, setCopied] = useState(false);
+
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(text);
-      // Aquí podrías agregar una notificación de éxito
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Error al copiar:", err);
     }
@@ -19,9 +24,19 @@ export function CopyButton({ text, label, className = "" }: CopyButtonProps) {
   return (
     <button
       onClick={handleCopy}
-      className={`px-4 py-2 text-white text-sm rounded hover:opacity-90 transition-opacity ${className}`}
+      className={`px-4 py-2 text-white text-sm rounded transition-all duration-300 ${
+        copied 
+          ? 'bg-green-600 hover:bg-green-700' 
+          : className || 'bg-blue-600 hover:bg-blue-700'
+      }`}
     >
-      {label}
+      {copied ? (
+        <span className="flex items-center gap-2">
+          ✓ Copiado
+        </span>
+      ) : (
+        label
+      )}
     </button>
   );
 }

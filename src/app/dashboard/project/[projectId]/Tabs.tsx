@@ -18,15 +18,15 @@ export default function Tabs({ tabs, initialId }: TabsProps) {
 
   return (
     <div className="w-full">
-      <div className="va-tabs">
+      <div className="flex gap-1 mb-0">
         {tabs.map((t) => (
           <button
             key={t.id}
             onClick={() => setActive(t.id)}
-            className={`px-4 py-2 font-medium text-sm transition-colors rounded-t-md ${
+            className={`px-5 py-3 font-medium text-sm transition-all duration-300 rounded-t-xl border-t-2 ${
               active === t.id
-                ? "bg-white text-blue-600 border-t-2 border-blue-600"
-                : "text-gray-500 hover:text-gray-700"
+                ? "bg-white/80 backdrop-blur-xl text-blue-600 border-blue-600 shadow-lg scale-[1.02] z-10"
+                : "bg-white/30 backdrop-blur-sm text-gray-500 border-transparent hover:bg-white/50 hover:text-gray-700"
             }`}
             aria-label={`Cambiar a ${t.label}`}
           >
@@ -35,7 +35,7 @@ export default function Tabs({ tabs, initialId }: TabsProps) {
         ))}
       </div>
 
-      <div className="bg-white rounded-b-md border border-gray-200 shadow-sm p-6">
+      <div className="bg-white/80 backdrop-blur-xl rounded-2xl rounded-tl-xl border border-white/50 shadow-xl p-6 -mt-px">
         {tabs.map((t) => (
           <div key={t.id} className={active === t.id ? "block" : "hidden"}>
             {t.content}

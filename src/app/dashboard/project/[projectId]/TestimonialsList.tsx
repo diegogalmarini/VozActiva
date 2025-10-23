@@ -67,6 +67,16 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
                         ({testimonial.author_email})
                       </span>
                     )}
+                    
+                    {/* Mostrar estrellas ANTES del badge de estado */}
+                    {testimonial.rating && testimonial.rating > 0 && (
+                      <div className="flex items-center gap-0.5" aria-label={`${testimonial.rating} estrellas`}>
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star key={i} filled={i < testimonial.rating!} />
+                        ))}
+                      </div>
+                    )}
+                    
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${
                         testimonial.status === "approved"
@@ -83,15 +93,6 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
                         : "Pendiente"}
                     </span>
                   </div>
-
-                  {/* estrellas si existen */}
-                  {typeof testimonial.rating === "number" && testimonial.rating > 0 && (
-                    <div className="flex items-center gap-1 mb-2" aria-label={`${testimonial.rating} estrellas`}>
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <Star key={i} filled={i < (testimonial.rating ?? 0)} />
-                      ))}
-                    </div>
-                  )}
 
                   <p className="text-gray-700 mb-3">{testimonial.content}</p>
                   <p className="text-sm text-gray-500">

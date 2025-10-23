@@ -15,6 +15,7 @@ export default function IntegrateWidget({ embedSrc }: Props) {
   const [bg, setBg] = useState("white");
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [minStars, setMinStars] = useState(0);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const iframeCode = useMemo(() => {
     const params = new URLSearchParams();
@@ -97,7 +98,17 @@ export default function IntegrateWidget({ embedSrc }: Props) {
       </div>
 
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-2">Vista previa del widget</h3>
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-sm font-medium text-gray-700">Vista previa del widget</h3>
+          <button
+            type="button"
+            onClick={() => setRefreshKey((k) => k + 1)}
+            className="px-3 py-1 text-xs rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            title="Recargar para ver cambios recientes"
+          >
+            Actualizar vista
+          </button>
+        </div>
         <div className="rounded-2xl border border-gray-200 p-4 bg-white shadow-sm">
           <div className="flex items-center justify-between mb-3">
             <h4 className="font-semibold text-gray-900">{showTitle ? title : 'Widget sin título'}</h4>
@@ -110,6 +121,8 @@ export default function IntegrateWidget({ embedSrc }: Props) {
                 if (minStars > 0) params.set('minRating', minStars.toString());
                 if (theme === 'dark') params.set('theme', 'dark');
                 if (!showTitle) params.set('hideTitle', 'true');
+                // Cache-busting para forzar recarga y ver modificaciones
+                params.set('_cb', String(refreshKey));
                 const query = params.toString();
                 return query ? `${embedSrc}?${query}` : embedSrc;
               })()}

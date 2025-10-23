@@ -2,47 +2,58 @@
 
 import Link from "next/link";
 import { useAuth } from "@clerk/nextjs";
-import { useState } from "react";
-import AuthModal from "@/components/AuthModal";
+import { useState } from 'react';
+import AuthModal from '@/components/AuthModal';
+import TypewriterText from '@/components/TypewriterText';
 
 export default function Home() {
   const { userId } = useAuth();
   const [authModal, setAuthModal] = useState<'sign-in' | 'sign-up' | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Fondo animado con gradientes */}
+      <div className="fixed inset-0 -z-10">
+        {/* Gradiente base */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
+        
+        {/* Orbes animados pasteles con movimiento amplio */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] bg-pink-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-[480px] h-[480px] bg-blue-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-6000"></div>
+        <div className="absolute top-1/2 left-1/2 w-[420px] h-[420px] bg-indigo-300/35 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-3000"></div>
+        
+        {/* Capa de vidrio sutil */}
+        <div className="absolute inset-0 bg-white/20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center">
           <h1 className="va-h1 mb-8">
             <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
               VozActiva
             </span>
           </h1>
-          <p className="text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            Recolecta y gestiona testimonios de tus clientes de forma sencilla.<br />
-            Aumenta la confianza en tu negocio con testimonios reales.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+          <TypewriterText />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center my-[30px]">
             {userId ? (
-              <Link
-                href="/dashboard"
-                className="va-btn va-btn-primary text-lg px-10 py-5"
-              >
+              <Link href="/dashboard" className="va-btn va-btn-primary text-lg px-10 py-4">
                 Ir al Dashboard
               </Link>
             ) : (
               <>
-                <button
+                <button 
                   onClick={() => setAuthModal('sign-up')}
-                  className="va-btn va-btn-primary text-lg px-10 py-5"
+                  className="va-btn va-btn-primary text-lg px-10 py-4"
                 >
-                  Comenzar Gratis
+                  Comenzar gratis
                 </button>
-                <button
+                <button 
                   onClick={() => setAuthModal('sign-in')}
-                  className="va-btn va-btn-outline text-lg px-10 py-5"
+                  className="va-btn va-btn-outline text-lg px-10 py-4"
                 >
-                  Iniciar Sesión
+                  Iniciar sesión
                 </button>
               </>
             )}
@@ -86,6 +97,7 @@ export default function Home() {
         isOpen={authModal !== null}
         onClose={() => setAuthModal(null)}
         mode={authModal || 'sign-in'}
+        onModeChange={(mode) => setAuthModal(mode)}
       />
     </div>
   );

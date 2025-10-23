@@ -48,11 +48,22 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8 flex justify-between items-center">
+    <div className="min-h-screen relative overflow-hidden py-[30px]">
+      {/* Fondo animado con gradientes */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50"></div>
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-purple-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide"></div>
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-2000"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] bg-pink-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-4000"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-[480px] h-[480px] bg-blue-300/40 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-6000"></div>
+        <div className="absolute top-1/2 left-1/2 w-[420px] h-[420px] bg-indigo-300/35 rounded-full mix-blend-normal filter blur-3xl animate-blob-wide animation-delay-3000"></div>
+        <div className="absolute inset-0 bg-white/20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="mb-[30px] flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Mis Proyectos</h1>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Mis Proyectos</h1>
             <p className="mt-2 text-gray-600">
               Gestiona tus proyectos de recolección de testimonios
             </p>
@@ -61,19 +72,19 @@ export default async function DashboardPage() {
         </div>
 
         {/* Formulario para crear nuevo proyecto */}
-        <div className="bg-white p-6 rounded-lg shadow mb-8">
+        <div className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-white/50 mb-[30px]">
           <h2 className="text-xl font-semibold mb-4">Crear Nuevo Proyecto</h2>
           <form action={createProject} className="flex gap-4">
             <input
               type="text"
               name="name"
               placeholder="Nombre del proyecto"
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-4 py-3 bg-white/50 backdrop-blur-sm border border-white/60 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               required
             />
             <button
               type="submit"
-              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-lg transition-all"
             >
               Crear Proyecto
             </button>
@@ -83,14 +94,14 @@ export default async function DashboardPage() {
         {/* Lista de proyectos */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects?.map((project: { id: string; name: string; created_at: string }) => (
-            <div key={project.id} className="bg-white p-6 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-2">{project.name}</h3>
+            <div key={project.id} className="bg-white/70 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+              <h3 className="text-xl font-bold mb-2 text-gray-900">{project.name}</h3>
               <p className="text-gray-600 mb-4">
                 Creado el {new Date(project.created_at).toLocaleDateString()}
               </p>
               <Link
                 href={`/dashboard/project/${project.id}`}
-                className="inline-block px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 transition-colors"
+                className="inline-block px-4 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white rounded-xl hover:from-gray-800 hover:to-gray-600 transition-all shadow-md"
               >
                 Ver Proyecto
               </Link>
