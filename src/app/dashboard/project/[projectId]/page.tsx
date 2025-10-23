@@ -85,11 +85,11 @@ export default async function ProjectDashboard({ params }: PageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-[30px] flex justify-between items-center">
           <div>
-            <Link href="/dashboard" className="text-blue-600 hover:text-blue-700 text-sm mb-2 inline-flex items-center gap-1 font-medium hover:gap-2 transition-all">
+            <Link href="/dashboard" className="text-cyan-300 hover:text-cyan-200 text-sm mb-2 inline-flex items-center gap-1 font-medium hover:gap-2 transition-all">
               ← Volver al Dashboard
             </Link>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mt-2">{projectData.name}</h1>
-            <p className="mt-2 text-gray-600">
+            <h1 className="text-4xl font-bold text-white mt-2">{projectData.name}</h1>
+            <p className="mt-2 text-gray-300">
               Gestiona los testimonios de tu proyecto
             </p>
           </div>
@@ -97,12 +97,12 @@ export default async function ProjectDashboard({ params }: PageProps) {
         </div>
         {/* Pestañas */}
         <div className="mb-[30px]">
-          <div className="bg-white/70 backdrop-blur-xl border border-white/50 rounded-2xl p-4 mb-4 flex items-center justify-between shadow-lg">
+          <div className="bg-white/10 backdrop-blur-2xl border border-white/30 rounded-2xl p-4 mb-4 flex items-center justify-between shadow-lg">
             <div>
-              <h3 className="text-sm font-medium text-gray-700">Enlace público</h3>
-              <code className="text-sm break-all text-gray-800">{publicUrl}</code>
+              <h3 className="text-sm font-medium text-white">Enlace público</h3>
+              <code className="text-sm break-all text-gray-200">{publicUrl}</code>
             </div>
-            <CopyButton text={publicUrl} label="Copiar Enlace" className="bg-blue-600 hover:bg-blue-700" />
+            <CopyButton text={publicUrl} label="Copiar Enlace" className="bg-emerald-600 hover:bg-emerald-700" />
           </div>
 
           <Tabs
@@ -142,7 +142,7 @@ export default async function ProjectDashboard({ params }: PageProps) {
                 id: "ajustes",
                 label: "Ajustes",
                 content: (
-                  <div className="text-sm text-gray-500">Próximamente: configuración de proyecto.</div>
+                  <div className="text-sm text-gray-400">Próximamente: configuración de proyecto.</div>
                 ),
               },
             ]}

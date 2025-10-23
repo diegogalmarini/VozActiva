@@ -25,8 +25,8 @@ export default function Tabs({ tabs, initialId }: TabsProps) {
             onClick={() => setActive(t.id)}
             className={`px-5 py-3 font-medium text-sm transition-all duration-300 rounded-t-xl border-t-2 ${
               active === t.id
-                ? "bg-white/80 backdrop-blur-xl text-blue-600 border-blue-600 shadow-lg scale-[1.02] z-10"
-                : "bg-white/30 backdrop-blur-sm text-gray-500 border-transparent hover:bg-white/50 hover:text-gray-700"
+                ? "bg-white/15 backdrop-blur-xl text-white border-white/50 shadow-lg scale-[1.02] z-10"
+                : "bg-white/5 backdrop-blur-sm text-white/60 border-transparent hover:bg-white/10 hover:text-white"
             }`}
             aria-label={`Cambiar a ${t.label}`}
           >
@@ -35,7 +35,7 @@ export default function Tabs({ tabs, initialId }: TabsProps) {
         ))}
       </div>
 
-      <div className="bg-white/80 backdrop-blur-xl rounded-2xl rounded-tl-xl border border-white/50 shadow-xl p-6 -mt-px">
+      <div className="bg-white/10 backdrop-blur-2xl rounded-2xl rounded-tl-xl border border-white/30 shadow-xl p-6 -mt-px text-white">
         {tabs.map((t) => (
           <div key={t.id} className={active === t.id ? "block" : "hidden"}>
             {t.content}

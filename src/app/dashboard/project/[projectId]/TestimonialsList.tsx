@@ -37,11 +37,11 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
     <div>
       {/* Filtro por estrellas */}
       <div className="flex items-center gap-3 mb-6">
-        <span className="text-sm font-medium text-gray-700">Filtrar por estrellas:</span>
+        <span className="text-sm font-medium text-white">Filtrar por estrellas:</span>
         <select
           value={stars}
           onChange={(e) => setStars(e.target.value === "all" ? "all" : Number(e.target.value))}
-          className="px-4 py-2 bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all"
+          className="px-4 py-2 bg-white/10 text-white placeholder-white/60 backdrop-blur-sm border border-white/30 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-purple-300/50 transition-all"
         >
           <option value="all">Todas</option>
           <option value={5}>5 ★</option>
@@ -53,17 +53,17 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
       </div>
 
       {filtered.length > 0 ? (
-        <div className="divide-y">
+        <div className="divide-y divide-white/10">
           {filtered.map((testimonial) => (
             <div key={testimonial.id} className="p-6">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <h4 className="font-medium">
+                    <h4 className="font-medium text-white">
                       {testimonial.author_name || "Anónimo"}
                     </h4>
                     {testimonial.author_email && (
-                      <span className="text-sm text-gray-600">
+                      <span className="text-sm text-gray-300">
                         ({testimonial.author_email})
                       </span>
                     )}
@@ -80,10 +80,10 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
                     <span
                       className={`px-2 py-1 rounded-full text-xs font-medium ${
                         testimonial.status === "approved"
-                          ? "bg-green-100 text-green-800"
+                          ? "bg-green-500/20 text-green-200"
                           : testimonial.status === "rejected"
-                          ? "bg-red-100 text-red-800"
-                          : "bg-yellow-100 text-yellow-800"
+                          ? "bg-red-500/20 text-red-200"
+                          : "bg-yellow-500/20 text-yellow-200"
                       }`}
                     >
                       {testimonial.status === "approved"
@@ -94,8 +94,8 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
                     </span>
                   </div>
 
-                  <p className="text-gray-700 mb-3">{testimonial.content}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-gray-200 mb-3">{testimonial.content}</p>
+                  <p className="text-sm text-gray-400">
                     {new Date(testimonial.created_at).toLocaleDateString()}
                   </p>
                 </div>
@@ -132,7 +132,7 @@ export default function TestimonialsList({ testimonials, projectId, updateAction
         </div>
       ) : (
         <div className="p-12 text-center">
-          <p className="text-gray-500">
+          <p className="text-gray-400">
             No hay testimonios con ese filtro.
           </p>
         </div>
