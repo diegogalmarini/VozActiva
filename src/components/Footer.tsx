@@ -1,12 +1,13 @@
 import Link from "next/link";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
     <footer className="w-full mt-16 py-10 text-sm text-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-4">
           <p className="text-center">
-            © VozActiva 2025 by <span className="font-medium">Diego Galmarini</span> |{" "}
+            © VozActiva {year} by <span className="font-medium">Diego Galmarini</span> |{" "}
             <Link href="/privacidad" className="underline hover:text-gray-900">
               Política de privacidad
             </Link>
@@ -14,7 +15,7 @@ export default function Footer() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://www.linkedin.com/in/diegogalmarini"
+              href="https://www.linkedin.com/in/diegogalmarini/"
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn de Diego Galmarini"
