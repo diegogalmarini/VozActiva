@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4">
           <p className="text-center">
             © VozActiva {year} by <span className="font-medium">Diego Galmarini</span> |{" "}
-            <Link href="/privacidad" className="underline hover:text-gray-900">
-              Política de privacidad
-            </Link>
+            <Link href="/privacidad" className="underline hover:text-gray-900">Política de privacidad</Link>
+            <span className="mx-2 text-gray-400">·</span>
+            <Link href="/terminos" className="underline hover:text-gray-900">Términos de servicio</Link>
           </p>
 
           <div className="flex items-center gap-4">
