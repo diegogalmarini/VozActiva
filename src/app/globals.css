@@ -38,9 +38,9 @@ h2, .va-h2 {
   color: inherit;
 }
 h3, .va-h3 {
+  color: #fff;
   font-size: 1.25rem;
-  font-weight: 500;
-  color: inherit;
+  font-weight: 700;
 }
 
 .to-indigo-100 {
