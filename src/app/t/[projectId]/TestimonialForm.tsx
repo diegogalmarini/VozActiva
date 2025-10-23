@@ -80,44 +80,47 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
 
   if (submitted) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 relative">
+  <div className="min-h-[78vh] flex items-start justify-center pt-8 pb-6 px-4 relative">
         {/* Fondo tecnológico animado */}
         <TechBackground />
 
-        <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-md w-full text-center relative z-10">
-          <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-            <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-full max-w-xl scale-[0.9] relative z-10">
+          <div className="bg-white/10 backdrop-blur-2xl p-6 rounded-2xl border border-white/30 shadow-xl w-full text-center text-white">
+            <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">¡Gracias!</h2>
+            <p className="text-white/80">
+              Tu testimonio ha sido enviado correctamente. Lo revisaremos pronto.
+            </p>
           </div>
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">¡Gracias!</h2>
-          <p className="text-gray-700">
-            Tu testimonio ha sido enviado correctamente. Lo revisaremos pronto.
-          </p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative">
+  <div className="min-h-[78vh] flex items-start justify-center pt-8 pb-6 px-4 relative">
       {/* Fondo tecnológico animado */}
       <TechBackground />
 
-      <div className="bg-white/70 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-xl max-w-2xl w-full relative z-10">
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-2">
-            Deja tu testimonio para {projectName}
-          </h1>
-          <p className="text-gray-700">
-            Tu opinión es muy valiosa para nosotros. Comparte tu experiencia.
-          </p>
-        </div>
+      <div className="w-full max-w-4xl scale-[0.88] relative z-10">
+        <div className="bg-white/10 backdrop-blur-2xl p-5 rounded-2xl border border-white/30 shadow-xl w-full text-white">
+          <div className="text-center mb-5">
+            <h1 className="text-3xl font-bold text-white mb-2">
+              Deja tu testimonio para {projectName}
+            </h1>
+            <p className="text-white/80">
+              Tu opinión es muy valiosa para nosotros. Comparte tu experiencia.
+            </p>
+          </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                 Nombre (opcional)
               </label>
               <input
@@ -125,13 +128,13 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                 id="name"
                 value={formData.author_name}
                 onChange={(e) => setFormData(prev => ({ ...prev, author_name: e.target.value }))}
-                className="w-full px-4 py-2.5 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent transition-all"
+                className="w-full px-4 py-2.5 bg-white/10 text-white placeholder-white/60 backdrop-blur-sm border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:border-transparent transition-all"
                 placeholder="Tu nombre"
               />
             </div>
             
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-800 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                 Email (opcional)
               </label>
               <input
@@ -139,14 +142,14 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                 id="email"
                 value={formData.author_email}
                 onChange={(e) => setFormData(prev => ({ ...prev, author_email: e.target.value }))}
-                className="w-full px-4 py-2.5 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent transition-all"
+                className="w-full px-4 py-2.5 bg-white/10 text-white placeholder-white/60 backdrop-blur-sm border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:border-transparent transition-all"
                 placeholder="tu@email.com"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-800 mb-2">
+            <label className="block text-sm font-medium text-white mb-2">
               Puntuación
             </label>
             <div className="flex items-center gap-1">
@@ -163,7 +166,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
                     title={`${val} estrellas`}
                   >
                     <svg
-                      className={`w-8 h-8 transition-colors ${active ? 'text-yellow-400' : 'text-gray-300'}`}
+                      className={`w-7 h-7 transition-colors ${active ? 'text-yellow-400' : 'text-white/30'}`}
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -176,15 +179,15 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
           </div>
 
           <div>
-            <label htmlFor="testimonial" className="block text-sm font-medium text-gray-800 mb-2">
+            <label htmlFor="testimonial" className="block text-sm font-medium text-white mb-2">
               Tu Testimonio *
             </label>
             <textarea
               id="testimonial"
               value={formData.content}
               onChange={(e) => setFormData(prev => ({ ...prev, content: e.target.value }))}
-              rows={6}
-              className="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400/50 focus:border-transparent resize-none transition-all"
+              rows={5}
+              className="w-full px-4 py-3 bg-white/10 text-white placeholder-white/60 backdrop-blur-sm border border-white/30 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400/40 focus:border-transparent resize-none transition-all"
               placeholder="Comparte tu experiencia..."
               required
             />
@@ -209,7 +212,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
             </button>
             
             {aiError && (
-              <p className="mt-2 text-sm text-red-600 bg-red-50 px-3 py-2 rounded-lg">
+              <p className="mt-2 text-sm text-red-400 bg-red-500/10 border border-red-400/30 px-3 py-2 rounded-lg">
                 {aiError}
               </p>
             )}
@@ -230,6 +233,7 @@ export default function TestimonialForm({ projectId, projectName }: TestimonialF
             )}
           </button>
         </form>
+        </div>
       </div>
     </div>
   );

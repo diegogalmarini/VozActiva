@@ -121,8 +121,8 @@ export default function RequestForm({
   const inputBase = 'va-input';
 
   return (
-    <section className="w-full max-w-3xl va-card p-6 mt-8">
-      <h2 className="text-xl font-semibold mb-5">Solicitar Testimonio por Email</h2>
+    <section className="w-full max-w-3xl relative bg-white/10 backdrop-blur-2xl border border-white/30 rounded-3xl p-6 mt-8 text-white shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]">
+      <h2 className="text-xl font-semibold mb-5 text-white">Solicitar Testimonio por Email</h2>
 
       {/* Datos del cliente */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -216,7 +216,7 @@ export default function RequestForm({
           </div>
           <div>
             <label className="va-label">Marcadores disponibles</label>
-            <div className="text-sm text-gray-600 border border-gray-200 rounded-md p-2 bg-gray-50">
+            <div className="text-sm text-white/80 border border-white/20 rounded-md p-2 bg-white/5">
               {'{clientName} {projectName} {senderName} {senderEmail} {link}'}
             </div>
           </div>
@@ -235,11 +235,11 @@ export default function RequestForm({
       </div>
 
       {/* Vista previa */}
-      <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-4">
+      <div className="bg-white/5 border border-white/20 rounded-lg p-4 mb-4">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-medium text-gray-700">Vista previa</h3>
+          <h3 className="text-sm font-medium text-white">Vista previa</h3>
           <div className="flex items-center gap-2">
-            <span className={`text-xs ${nearLimit ? 'text-orange-600 font-medium' : 'text-gray-500'}`}>
+            <span className={`text-xs ${nearLimit ? 'text-orange-400 font-medium' : 'text-white/60'}`}>
               {charCount} / {whatsappLimit} caracteres
             </span>
             <button
@@ -252,9 +252,9 @@ export default function RequestForm({
             </button>
           </div>
         </div>
-        <pre className="whitespace-pre-wrap text-sm text-gray-800">{finalBody}</pre>
+        <pre className="whitespace-pre-wrap text-sm text-white">{finalBody}</pre>
         {nearLimit && (
-          <p className="text-xs text-orange-600 mt-2">
+          <p className="text-xs text-orange-400 mt-2">
             ⚠️ El mensaje es muy largo para WhatsApp. Considera acortarlo.
           </p>
         )}
@@ -305,7 +305,7 @@ export default function RequestForm({
         </button>
       </div>
 
-      <p className="text-xs text-gray-500 mt-3">
+      <p className="text-xs text-white/60 mt-3">
         Puedes enviar por Email, Gmail o WhatsApp. Para WhatsApp, si no ingresas número usaremos WhatsApp Web para que elijas el contacto.
       </p>
     </section>

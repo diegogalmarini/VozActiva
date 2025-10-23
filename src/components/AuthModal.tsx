@@ -29,9 +29,9 @@ export default function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthM
       onClick={onClose}
     >
       <div 
-        className="max-w-full bg-white/70 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/50 overflow-hidden"
+        className="max-w-full bg-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/30 overflow-hidden text-white"
         style={{
-          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.8)',
+          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.15)',
         }}
         onClick={(e) => {
           e.stopPropagation();
@@ -63,19 +63,19 @@ export default function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthM
               elements: {
                 rootBox: 'w-full',
                 card: 'bg-transparent shadow-none',
-                headerTitle: 'text-2xl font-bold text-gray-900',
-                headerSubtitle: 'text-gray-600 mt-2',
-                socialButtonsBlockButton: 'bg-white/50 backdrop-blur-sm border border-white/60 hover:bg-white/70 text-gray-700 font-medium transition-all duration-300 rounded-xl shadow-lg',
-                socialButtonsBlockButton__google: 'bg-white/50 backdrop-blur-sm hover:bg-white/70',
+                headerTitle: 'text-2xl font-bold text-white',
+                headerSubtitle: 'text-white/70 mt-2',
+                socialButtonsBlockButton: 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white font-medium transition-all duration-300 rounded-xl shadow-lg',
+                socialButtonsBlockButton__google: 'bg-white/10 backdrop-blur-sm hover:bg-white/20',
                 formButtonPrimary: 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-300',
-                formFieldInput: 'bg-white/50 backdrop-blur-sm border-white/60 focus:border-indigo-400 focus:ring-indigo-400 rounded-xl transition-all duration-300',
-                identityPreviewText: 'text-gray-700',
-                identityPreviewEditButton: 'text-indigo-600 hover:text-indigo-700',
-                formFieldLabel: 'text-gray-700 font-medium',
-                dividerLine: 'bg-gradient-to-r from-transparent via-gray-300 to-transparent',
-                dividerText: 'text-gray-500',
-                footer: 'bg-white/30 backdrop-blur-sm rounded-b-3xl',
-                footerActionLink: 'text-indigo-600 hover:text-indigo-700 font-medium',
+                formFieldInput: 'bg-white/10 backdrop-blur-sm border-white/30 focus:border-emerald-400/40 focus:ring-emerald-400/40 text-white placeholder-white/60 rounded-xl transition-all duration-300',
+                identityPreviewText: 'text-white/80',
+                identityPreviewEditButton: 'text-cyan-300 hover:text-cyan-200',
+                formFieldLabel: 'text-white font-medium',
+                dividerLine: 'bg-gradient-to-r from-transparent via-white/20 to-transparent',
+                dividerText: 'text-white/60',
+                footer: 'bg-white/5 backdrop-blur-sm rounded-b-3xl',
+                footerActionLink: 'text-cyan-300 hover:text-cyan-200 font-medium',
               },
             }}
             routing="virtual"
@@ -88,19 +88,19 @@ export default function AuthModal({ isOpen, onClose, mode, onModeChange }: AuthM
               elements: {
                 rootBox: 'w-full',
                 card: 'bg-transparent shadow-none',
-                headerTitle: 'text-2xl font-bold text-gray-900',
-                headerSubtitle: 'text-gray-600 mt-2',
-                socialButtonsBlockButton: 'bg-white/50 backdrop-blur-sm border border-white/60 hover:bg-white/70 text-gray-700 font-medium transition-all duration-300 rounded-xl shadow-lg',
-                socialButtonsBlockButton__google: 'bg-white/50 backdrop-blur-sm hover:bg-white/70',
+                headerTitle: 'text-2xl font-bold text-white',
+                headerSubtitle: 'text-white/70 mt-2',
+                socialButtonsBlockButton: 'bg-white/10 backdrop-blur-sm border border-white/30 hover:bg-white/20 text-white font-medium transition-all duration-300 rounded-xl shadow-lg',
+                socialButtonsBlockButton__google: 'bg-white/10 backdrop-blur-sm hover:bg-white/20',
                 formButtonPrimary: 'bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold py-3 rounded-xl shadow-lg transition-all duration-300',
-                formFieldInput: 'bg-white/50 backdrop-blur-sm border-white/60 focus:border-indigo-400 focus:ring-indigo-400 rounded-xl transition-all duration-300',
-                identityPreviewText: 'text-gray-700',
-                identityPreviewEditButton: 'text-indigo-600 hover:text-indigo-700',
-                formFieldLabel: 'text-gray-700 font-medium',
-                dividerLine: 'bg-gradient-to-r from-transparent via-gray-300 to-transparent',
-                dividerText: 'text-gray-500',
-                footer: 'bg-white/30 backdrop-blur-sm rounded-b-3xl',
-                footerActionLink: 'text-indigo-600 hover:text-indigo-700 font-medium',
+                formFieldInput: 'bg-white/10 backdrop-blur-sm border-white/30 focus:border-emerald-400/40 focus:ring-emerald-400/40 text-white placeholder-white/60 rounded-xl transition-all duration-300',
+                identityPreviewText: 'text-white/80',
+                identityPreviewEditButton: 'text-cyan-300 hover:text-cyan-200',
+                formFieldLabel: 'text-white font-medium',
+                dividerLine: 'bg-gradient-to-r from-transparent via-white/20 to-transparent',
+                dividerText: 'text-white/60',
+                footer: 'bg-white/5 backdrop-blur-sm rounded-b-3xl',
+                footerActionLink: 'text-cyan-300 hover:text-cyan-200 font-medium',
               },
             }}
             routing="virtual"

@@ -30,12 +30,12 @@ h1, .va-h1 {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: inherit; /* Allow page/theme to define text color */
+  color: #ffffff; /* Force white headings */
 }
 h2, .va-h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: inherit;
+  color: #ffffff;
 }
 h3, .va-h3 {
   color: #fff;
@@ -64,21 +64,23 @@ h3, .va-h3 {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.va-label { display:block; font-size: 0.875rem; color: #374151; font-weight: 500; margin-bottom: 0.25rem; }
+.va-label { display:block; font-size: 0.875rem; color: #ffffff; font-weight: 500; margin-bottom: 0.25rem; }
 
 .va-input, .va-select, .va-textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: #ffffff;
+  color: #111827; /* gray-900 */
   border: 1px solid rgba(229, 231, 235, 0.8);
   border-radius: 14px;
   padding: 0.75rem 1rem;
   outline: none;
   transition: all .2s ease;
 }
+.va-input::placeholder, .va-textarea::placeholder { color: #6b7280; }
 .va-textarea { min-height: 120px; resize: vertical; }
 .va-input:focus, .va-select:focus, .va-textarea:focus {
   border-color: rgba(16, 185, 129, 0.6);
-  background: rgba(255, 255, 255, 0.8);
+  background: #ffffff;
   box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
 }
 .va-btn {
@@ -221,4 +223,14 @@ h3, .va-h3 {
 
 .animation-delay-6000 {
   animation-delay: 6s;
+}
+
+/* Clerk avatar glow: highlight user photo with soft white/brand halo on dark backgrounds */
+.cl-internal-14s4tiz {
+  position: relative;
+  /* Inner white ring + subtle outer glow in brand emerald */
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.65),
+    0 0 0 8px rgba(255, 255, 255, 0.12),
+    0 10px 25px rgba(16, 185, 129, 0.35);
 }

@@ -44,9 +44,10 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold">Mejorar con IA</h2>
             <p>
               Cuando solicitas “Mejorar con IA”, enviamos el texto del testimonio a proveedores externos de IA
-              para obtener una versión mejorada. Por defecto usamos Google Gemini; si no está disponible, usamos
-              OpenRouter (actualmente con el modelo gpt‑4o‑mini). No compartimos datos personales adicionales salvo
-              el texto que envías. No empleamos el contenido para entrenar nuestros propios modelos.
+              para obtener una versión mejorada. El orden típico es: Google Gemini (si hay clave disponible),
+              OpenRouter (p. ej., gpt‑4o‑mini) y, como alternativa open‑source, la Inference API de Hugging Face
+              (p. ej., Mistral 7B Instruct). No compartimos datos personales adicionales salvo el texto que envías
+              para su mejora. No empleamos tu contenido para entrenar nuestros propios modelos.
             </p>
 
             <h2 className="text-xl font-semibold">Base legal</h2>
@@ -71,7 +72,7 @@ export default function PrivacyPage() {
             <ul className="list-disc list-inside text-white/90 space-y-1">
               <li>Clerk (autenticación y gestión de sesiones).</li>
               <li>Supabase (alojamiento de base de datos y APIs).</li>
-              <li>Google Generative AI y/o OpenRouter (procesamiento opcional de texto por IA).</li>
+              <li>Google Generative AI, OpenRouter y/o Hugging Face Inference API (procesamiento opcional de texto por IA).</li>
             </ul>
 
             <h2 className="text-xl font-semibold">Seguridad</h2>

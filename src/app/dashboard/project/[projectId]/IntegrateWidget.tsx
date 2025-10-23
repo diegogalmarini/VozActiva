@@ -29,47 +29,47 @@ export default function IntegrateWidget({ embedSrc }: Props) {
 
   return (
     <div className="space-y-6">
-      <div className="rounded-lg border border-gray-200 p-4 bg-gray-50">
-        <h3 className="text-sm font-medium text-gray-700 mb-3">Ajustes rápidos</h3>
+      <div className="rounded-2xl border border-white/30 p-4 bg-white/10 backdrop-blur-2xl text-white shadow-lg">
+        <h3 className="text-sm font-medium text-white mb-3">Ajustes rápidos</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Alto (px)</label>
+            <label className="va-label">Alto (px)</label>
             <input
               type="number"
               min={200}
               value={height}
               onChange={(e) => setHeight(Number(e.target.value) || 400)}
-              className="w-full px-2 py-1 border rounded"
+              className="va-input"
             />
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Ancho</label>
+            <label className="va-label">Ancho</label>
             <input
               type="text"
               value={width}
               onChange={(e) => setWidth(e.target.value)}
-              className="w-full px-2 py-1 border rounded"
+              className="va-input"
               placeholder="100% o 800px"
             />
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Tema</label>
-            <select value={theme} onChange={(e) => setTheme(e.target.value as 'light' | 'dark')} className="w-full px-2 py-1 border rounded">
+            <label className="va-label">Tema</label>
+            <select value={theme} onChange={(e) => setTheme(e.target.value as 'light' | 'dark')} className="va-select">
               <option value="light">Claro</option>
               <option value="dark">Oscuro</option>
             </select>
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Fondo iframe</label>
-            <select value={bg} onChange={(e) => setBg(e.target.value)} className="w-full px-2 py-1 border rounded">
+            <label className="va-label">Fondo iframe</label>
+            <select value={bg} onChange={(e) => setBg(e.target.value)} className="va-select">
               <option value="white">Blanco</option>
               <option value="#f8fafc">Gris claro</option>
               <option value="transparent">Transparente</option>
             </select>
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Filtro estrellas</label>
-            <select value={minStars} onChange={(e) => setMinStars(parseInt(e.target.value, 10))} className="w-full px-2 py-1 border rounded">
+            <label className="va-label">Filtro estrellas</label>
+            <select value={minStars} onChange={(e) => setMinStars(parseInt(e.target.value, 10))} className="va-select">
               <option value={0}>Todas</option>
               <option value={3}>3+</option>
               <option value={4}>4+</option>
@@ -77,19 +77,19 @@ export default function IntegrateWidget({ embedSrc }: Props) {
             </select>
           </div>
           <div>
-            <label className="block text-xs text-gray-600 mb-1">Título</label>
+            <label className="va-label">Título</label>
             <div className="flex items-center gap-1">
               <input
                 type="checkbox"
                 checked={showTitle}
                 onChange={(e) => setShowTitle(e.target.checked)}
-                className="w-4 h-4"
+                className="w-4 h-4 accent-emerald-400 bg-white/10 border border-white/30 rounded"
               />
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="flex-1 px-2 py-1 border rounded text-xs"
+                className="flex-1 va-input text-xs"
                 disabled={!showTitle}
               />
             </div>
@@ -99,22 +99,22 @@ export default function IntegrateWidget({ embedSrc }: Props) {
 
       <div>
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-medium text-gray-700">Vista previa del widget</h3>
+          <h3 className="text-sm font-medium text-white">Vista previa del widget</h3>
           <button
             type="button"
             onClick={() => setRefreshKey((k) => k + 1)}
-            className="px-3 py-1 text-xs rounded-md bg-blue-600 text-white hover:bg-blue-700"
+            className="px-3 py-1 text-xs rounded-md bg-emerald-500 text-white hover:bg-emerald-600 transition-colors"
             title="Recargar para ver cambios recientes"
           >
             Actualizar vista
           </button>
         </div>
-        <div className="rounded-2xl border border-gray-200 p-4 bg-white shadow-sm">
+        <div className="rounded-2xl border border-white/30 p-4 bg-white/10 backdrop-blur-2xl text-white shadow-lg">
           <div className="flex items-center justify-between mb-3">
-            <h4 className="font-semibold text-gray-900">{showTitle ? title : 'Widget sin título'}</h4>
-            <span className="text-xs text-gray-500">Iframe Preview</span>
+            <h4 className="font-semibold text-white">{showTitle ? title : 'Widget sin título'}</h4>
+            <span className="text-xs text-white/60">Iframe Preview</span>
           </div>
-          <div className="rounded-xl overflow-hidden border border-gray-100">
+          <div className="rounded-xl overflow-hidden border border-white/20">
             <iframe 
               src={(() => {
                 const params = new URLSearchParams();
@@ -134,12 +134,12 @@ export default function IntegrateWidget({ embedSrc }: Props) {
       </div>
 
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-2">Código HTML para tu web</h3>
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-          <code className="text-xs break-all block">{iframeCode}</code>
-          <CopyButton text={iframeCode} label="Copiar Código" className="mt-3 bg-gray-900" />
+        <h3 className="text-sm font-medium text-white mb-2">Código HTML para tu web</h3>
+        <div className="bg-white/5 border border-white/20 rounded-lg p-3">
+          <code className="text-xs break-all block text-white/80">{iframeCode}</code>
+          <CopyButton text={iframeCode} label="Copiar Código" className="mt-3 bg-white/10 text-white border border-white/20 hover:bg-white/20" />
         </div>
-        <p className="text-xs text-gray-500 mt-2">Pega este código donde quieras mostrar el widget de opiniones.</p>
+        <p className="text-xs text-white/60 mt-2">Pega este código donde quieras mostrar el widget de opiniones.</p>
       </div>
     </div>
   );

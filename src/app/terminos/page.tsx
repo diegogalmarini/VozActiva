@@ -49,8 +49,9 @@ export default function TermsPage() {
 
             <h2 className="text-xl font-semibold">Uso de IA</h2>
             <p>
-              Si utilizas “Mejorar con IA”, procesaremos el texto con proveedores externos (Gemini y/o OpenRouter) bajo
-              sus políticas. No garantizamos resultados ni exactitud; revisa siempre los textos antes de publicarlos.
+              Si utilizas “Mejorar con IA”, procesaremos el texto con proveedores externos (Google Gemini, OpenRouter y/o
+              Hugging Face Inference API), bajo sus respectivas políticas. No garantizamos resultados ni exactitud; revisa
+              siempre los textos antes de publicarlos.
             </p>
 
             <h2 className="text-xl font-semibold">Planes, pagos y cancelaciones</h2>
