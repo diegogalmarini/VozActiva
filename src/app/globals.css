@@ -30,17 +30,17 @@ h1, .va-h1 {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #111827;
+  color: inherit; /* Allow page/theme to define text color */
 }
 h2, .va-h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: #111827;
+  color: inherit;
 }
 h3, .va-h3 {
   font-size: 1.25rem;
   font-weight: 500;
-  color: #111827;
+  color: inherit;
 }
 
 .to-indigo-100 {

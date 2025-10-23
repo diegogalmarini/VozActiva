@@ -12,11 +12,11 @@ export default function Home() {
   const [authModal, setAuthModal] = useState<'sign-in' | 'sign-up' | null>(null);
 
   return (
-    <div className="h-screen relative overflow-hidden flex flex-col">
+    <div className="relative overflow-hidden flex-1 flex flex-col min-h-0">
       {/* Fondo tecnológico animado */}
       <TechBackground />
 
-      <div className="flex-1 flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scale-[0.78]">
+  <div className="flex-1 flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scale-[0.86]">
         <div className="text-center">
           <h1 className="text-8xl font-bold mb-1 text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] [text-shadow:_0_0_60px_rgb(255_255_255_/_50%),_0_0_30px_rgb(59_130_246_/_40%),_0_2px_4px_rgb(0_0_0_/_30%)]">
             VozActiva
