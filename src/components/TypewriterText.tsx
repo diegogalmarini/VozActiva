@@ -65,10 +65,10 @@ export default function TypewriterText() {
   }, [charIndex, isDeleting, currentPhraseIndex]);
 
   return (
-    <div className="min-h-[80px] flex items-center justify-center">
-      <p className="text-2xl text-gray-600 max-w-3xl mx-auto">
+    <div className="min-h-[60px] flex items-center justify-center">
+      <p className="text-xl text-white/90 max-w-3xl mx-auto">
         {displayText}
-        <span className="animate-pulse text-indigo-600">|</span>
+        <span className="animate-pulse text-cyan-400">|</span>
       </p>
     </div>
   );
