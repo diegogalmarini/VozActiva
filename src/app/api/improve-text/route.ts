@@ -85,7 +85,8 @@ ${text}
       // Este modelo es específico para español y corrección de texto
       const model = 'Helsinki-NLP/opus-mt-es-en';
       
-      const res = await fetch(`https://api-inference.huggingface.co/models/${model}`, {
+      // Migrado al nuevo endpoint de Inference Providers (nov 2025)
+      const res = await fetch(`https://router.huggingface.co/hf-inference/models/${model}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${hfKey}`,
