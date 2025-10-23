@@ -18,11 +18,11 @@ export default function Home() {
 
       <div className="flex-1 flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 scale-[0.82]">
         <div className="text-center">
-          <h1 className="text-8xl font-bold mb-4 text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] [text-shadow:_0_0_60px_rgb(255_255_255_/_50%),_0_0_30px_rgb(59_130_246_/_40%),_0_2px_4px_rgb(0_0_0_/_30%)]">
+          <h1 className="text-8xl font-bold mb-2 text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] [text-shadow:_0_0_60px_rgb(255_255_255_/_50%),_0_0_30px_rgb(59_130_246_/_40%),_0_2px_4px_rgb(0_0_0_/_30%)]">
             VozActiva
           </h1>
           <TypewriterText />
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center my-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center my-4">
             {userId ? (
               <Link href="/dashboard" className="va-btn va-btn-primary text-base px-8 py-3">
                 Ir al Dashboard
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
 
           {/* Features */}
-          <div className="grid md:grid-cols-3 gap-5 mb-4">
+          <div className="grid md:grid-cols-3 gap-5 mb-2">
             <div className="group relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-2xl border border-white/30 p-5 rounded-3xl shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] hover:shadow-[0_8px_48px_0_rgba(59,130,246,0.4)] transition-all duration-500 hover:scale-[1.03] overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500 after:absolute after:inset-0 after:rounded-3xl after:bg-gradient-to-br after:from-blue-500/10 after:to-transparent after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-500">
               <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl transition-all duration-500 group-hover:scale-150"></div>
               <div className="relative z-10">
